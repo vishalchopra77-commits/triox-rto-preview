@@ -93,3 +93,44 @@ main.entry{min-height:calc(100vh - 40px);display:grid;place-items:center;align-c
 @media (max-width:520px){.day{min-height:0;grid-template-columns:52px minmax(0,1fr);align-items:center}}
 .tablewrap.fit{border-right:0}.tablewrap.fit table{min-width:0;width:100%}
 h1[tabindex="-1"]:focus:not(:focus-visible){outline:none}
+
+/* =====================================================================
+   v1.2 · Dark sidebar on EVERY page kind, in Option A's own palette.
+   Deep navy (from primary #2563eb) for the RTO workspace and portals,
+   deep violet (from platform #7c3aed) for Platform admin. Light labels,
+   saturated icon tiles, tinted active row with a bright left accent bar.
+   ===================================================================== */
+html body .layout{--rail-bg:#0b1a3e;--rail-line:rgba(165,190,255,.18);--rail-label:#a9bcf2;--rail-text:#e8edff;--rail-hover:rgba(147,180,255,.12);--rail-active:rgba(59,130,246,.30);--rail-bar:#60a5fa;--rail-focus:#fbbf24}
+html body .layout.platform{--rail-bg:#1d0f45;--rail-line:rgba(196,181,253,.20);--rail-label:#c9bcfb;--rail-text:#f1ecff;--rail-hover:rgba(196,181,253,.13);--rail-active:rgba(139,92,246,.36);--rail-bar:#c4b5fd}
+html body .layout .rail{background:var(--rail-bg)!important;color:var(--rail-text)!important;border-right:0!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+html body .layout .railbrand{border-bottom:1px solid var(--rail-line)!important}
+html body .layout .rail .brand{color:#fff!important}
+html body .layout .rail .sigil{box-shadow:0 0 0 2px rgba(255,255,255,.14)}
+html body .layout .railbrand>small,html body .layout .rail .navheading{color:var(--rail-label)!important}
+html body .layout .rail nav .navitem{color:var(--rail-text)!important;background:transparent!important}
+html body .layout .rail nav .navitem:hover{background:var(--rail-hover)!important;color:#fff!important}
+html body .layout .rail nav .navitem.active{background:var(--rail-active)!important;color:#fff!important;border-left-color:var(--rail-bar)!important;font-weight:650;box-shadow:inset 0 0 0 1px rgba(255,255,255,.06)}
+html body .layout .rail nav .navitem.planned,html body .layout .rail nav .navitem.planned:hover{background:transparent!important;color:#c3cdea!important}
+html body .layout .rail .navcopy small{color:var(--rail-label)!important}
+html body .layout .rail nav .navitem.active .navcopy small{color:#dbe5ff!important}
+html body .layout .rail .navicon{box-shadow:0 0 0 1px rgba(255,255,255,.10)}
+html body .layout .rail :focus-visible{outline:3px solid var(--rail-focus)!important;outline-offset:2px}
+html body .layout .rail nav{scrollbar-width:thin;scrollbar-color:rgba(169,188,242,.4) transparent}
+html body .layout .rail nav::-webkit-scrollbar{width:8px}
+html body .layout .rail nav::-webkit-scrollbar-thumb{background:rgba(169,188,242,.4);border-radius:8px}
+html body .layout .rail nav::-webkit-scrollbar-track{background:transparent}
+html body .layout .railfoot{background:rgba(0,0,0,.18)!important;color:var(--rail-label)!important;border-top:1px solid var(--rail-line)!important}
+html body .layout .railfoot p,html body .layout .railfoot .collapse,html body .layout .railfoot .collapse span{color:var(--rail-label)!important}
+/* mobile / tablet: dark menu bar and dark off-canvas drawer */
+html body .layout .mobile-menu{background:var(--rail-bg)!important;border-bottom:0!important}
+html body .layout .mobile-menu>summary{color:#fff!important}
+html body .layout .mobile-menu[open]>summary{background:var(--rail-bg)!important;color:#fff!important;border-bottom:1px solid var(--rail-line)!important}
+html body .layout .mobile-menu[open]>nav{background:var(--rail-bg)!important}
+html body .layout .mobile-menu nav .navheading{color:var(--rail-label)!important}
+html body .layout .mobile-menu nav .navitem{color:var(--rail-text)!important;background:transparent!important}
+html body .layout .mobile-menu nav .navitem:hover{background:var(--rail-hover)!important}
+html body .layout .mobile-menu nav .navitem.active{background:var(--rail-active)!important;color:#fff!important;border-left-color:var(--rail-bar)!important}
+html body .layout .mobile-menu .navcopy small{color:var(--rail-label)!important}
+html body .layout .mobile-menu nav .navitem.active .navcopy small{color:#dbe5ff!important}
+html body .layout .mobile-menu :focus-visible{outline:3px solid var(--rail-focus)!important;outline-offset:2px}
+html body .layout .mobile-menu .collapse{color:var(--rail-label)!important;border-top-color:var(--rail-line)!important}

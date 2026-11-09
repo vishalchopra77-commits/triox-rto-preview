@@ -298,3 +298,42 @@ dl.review>div{border-bottom:2px dashed #E3EFEE!important}
 td .rowlink+.sub{margin-top:-8px}
 @media(max-width:390px){.utilityactions{grid-template-columns:44px minmax(0,1fr)!important;column-gap:8px}}
 @media(min-width:1024px){.layout{background:linear-gradient(90deg,#fff 0 264px,transparent 264px)}.platform.layout{background:linear-gradient(90deg,var(--teal-deep) 0 264px,transparent 264px)}}
+
+/* =====================================================================
+   v1.2 · Dark sidebar on EVERY page kind (RTO workspace, portals, platform).
+   Owner request 10 Nov 2026: the Platform-admin deep-teal rail now applies
+   everywhere. White uppercase-style labels, Flip7 icon tiles, white active
+   pill with gold accent bar, dashed dividers. Each portal keeps its own nav.
+   ===================================================================== */
+html body .layout .rail{background:var(--teal-deep)!important;color:#fff!important;border-right:0!important;box-shadow:none!important;backdrop-filter:none!important}
+html body .layout .railbrand{border-bottom:2px dashed rgba(191,232,229,.35)!important}
+html body .layout .rail .brand{color:#fff!important}
+html body .layout .rail .sigil{background:var(--gold)!important;color:var(--ink)!important;box-shadow:var(--sh-gold)!important}
+html body .layout .railbrand>small,html body .layout .rail .navheading{color:#BFE8E5!important}
+html body .layout .rail nav .navitem{color:#fff!important;background:transparent!important;box-shadow:none!important}
+html body .layout .rail nav .navitem:hover{background:rgba(255,255,255,.10)!important}
+html body .layout .rail nav .navitem.active{background:#fff!important;color:var(--teal-deep)!important;font-weight:800;box-shadow:inset 6px 0 0 var(--gold),var(--sh-gold)!important}
+html body .layout .rail nav .navitem.planned,html body .layout .rail nav .navitem.planned:hover{background:transparent!important;color:#D9F1EF!important}
+html body .layout .rail .navcopy small,html body .layout .rail nav .navitem small{color:#BFE8E5!important}
+html body .layout .rail nav .navitem.active small{color:var(--teal-ink)!important}
+html body .layout .rail :focus-visible{outline:3px solid var(--gold)!important;outline-offset:2px;box-shadow:none}
+html body .layout .rail nav{scrollbar-width:thin;scrollbar-color:rgba(191,232,229,.45) transparent}
+html body .layout .rail nav::-webkit-scrollbar{width:8px}
+html body .layout .rail nav::-webkit-scrollbar-thumb{background:rgba(191,232,229,.45);border-radius:999px}
+html body .layout .rail nav::-webkit-scrollbar-track{background:transparent}
+html body .layout .railfoot{background:var(--teal-deep)!important;color:#BFE8E5!important;border-top:2px dashed rgba(191,232,229,.35)!important}
+html body .layout .railfoot p,html body .layout .railfoot button,html body .layout .railfoot .collapse span{color:#BFE8E5!important}
+@media(min-width:1024px){html body .layout{background:linear-gradient(90deg,var(--teal-deep) 0 264px,transparent 264px)!important}}
+/* mobile / tablet: dark menu bar and dark off-canvas drawer on every page kind */
+html body .layout .mobile-menu{background:var(--teal-deep)!important;border-bottom:0!important}
+html body .layout .mobile-menu>summary{color:#fff!important;background:transparent!important;border-bottom:0!important}
+html body .layout .mobile-menu[open]>summary{background:var(--teal-deep)!important;border-bottom:2px dashed rgba(191,232,229,.35)!important}
+html body .layout .mobile-menu[open]>nav{background:var(--teal-deep)!important;box-shadow:var(--sh-lg)!important}
+html body .layout .mobile-menu nav .navheading{color:#BFE8E5!important}
+html body .layout .mobile-menu nav .navitem{color:#fff!important;background:transparent!important;box-shadow:none!important}
+html body .layout .mobile-menu nav .navitem:hover{background:rgba(255,255,255,.10)!important}
+html body .layout .mobile-menu nav .navitem.active{background:#fff!important;color:var(--teal-deep)!important;box-shadow:inset 6px 0 0 var(--gold)!important}
+html body .layout .mobile-menu nav .navitem small,html body .layout .mobile-menu .navcopy small{color:#BFE8E5!important}
+html body .layout .mobile-menu nav .navitem.active small{color:var(--teal-ink)!important}
+html body .layout .mobile-menu :focus-visible{outline:3px solid var(--gold)!important;outline-offset:2px;box-shadow:none}
+html body .layout .mobile-menu .collapse{color:#BFE8E5!important;border-top-color:rgba(191,232,229,.35)!important}
