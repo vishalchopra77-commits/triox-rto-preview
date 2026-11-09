@@ -3,7 +3,7 @@ Open `index.html`, the start page. It holds the sign-in, organisation-picker and
 
 Static design concept: fictional data, no backend, no network, CSP `default-src 'none'`.
 
-- **Shells:** entry; tenant workspace (blue); platform admin (violet); learner, trainer/assessor, supervisor and applicant portals.
+- **Shells:** entry; RTO workspace (blue); platform admin (violet); learner, trainer/assessor, supervisor and applicant portals.
 - **Representative details:** detail pages marked "Representative" in the directory are one sample record reused by every row of that list.
 - **Rebuild:** `cd work && python3 build.py && python3 standalone.py`.
 - **QA:** `python3 linkcheck.py`, `python3 render_qa.py`, `python3 standalone_qa.py`, `python3 drawer_qa.py`. Reports are in `qa/`.

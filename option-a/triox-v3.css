@@ -134,3 +134,26 @@ html body .layout .mobile-menu .navcopy small{color:var(--rail-label)!important}
 html body .layout .mobile-menu nav .navitem.active .navcopy small{color:#dbe5ff!important}
 html body .layout .mobile-menu :focus-visible{outline:3px solid var(--rail-focus)!important;outline-offset:2px}
 html body .layout .mobile-menu .collapse{color:var(--rail-label)!important;border-top-color:var(--rail-line)!important}
+
+/* =====================================================================
+   v1.3 · Option A selected sidebar item: white row like Option B (owner
+   request 10 Nov 2026), keeping Option A's 8px radius, icon tile and a
+   left accent bar in Option A's own accent (blue; violet on Platform admin).
+   Contrast on #fff: #0b1a3e 17.1:1, #1d0f45 17.4:1, small #3b4a6b 8.8:1 / #4b3d7a 9.3:1,
+   bar #2563eb 5.2:1, #7c3aed 5.7:1. Focus ring stays amber #fbbf24 drawn
+   2px outside the row, on the dark rail (10.2:1 on #0b1a3e, 10.4:1 on #1d0f45).
+   ===================================================================== */
+html body .layout{--rail-active-bg:#ffffff;--rail-active-ink:#0b1a3e;--rail-active-sub:#3b4a6b;--rail-active-bar:#2563eb}
+html body .layout.platform{--rail-active-ink:#1d0f45;--rail-active-sub:#4b3d7a;--rail-active-bar:#7c3aed}
+html body .layout .rail nav .navitem.active,
+html body .layout .mobile-menu nav .navitem.active{background:var(--rail-active-bg)!important;color:var(--rail-active-ink)!important;border-left:3px solid var(--rail-active-bar)!important;border-radius:8px!important;font-weight:700;box-shadow:0 6px 16px rgba(0,0,0,.28)!important}
+html body .layout .rail nav .navitem.active:hover,
+html body .layout .mobile-menu nav .navitem.active:hover{background:var(--rail-active-bg)!important;color:var(--rail-active-ink)!important}
+html body .layout .rail nav .navitem.active .navcopy,
+html body .layout .mobile-menu nav .navitem.active .navcopy{color:var(--rail-active-ink)!important}
+html body .layout .rail nav .navitem.active .navcopy small,
+html body .layout .mobile-menu nav .navitem.active .navcopy small,
+html body .layout .rail nav .navitem.active small,
+html body .layout .mobile-menu nav .navitem.active small{color:var(--rail-active-sub)!important}
+html body .layout .rail nav .navitem.active .navicon,
+html body .layout .mobile-menu nav .navitem.active .navicon{box-shadow:none}

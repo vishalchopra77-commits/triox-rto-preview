@@ -12,3 +12,25 @@ document.querySelectorAll('.mobile-menu').forEach(menu=>{
  menu.addEventListener('toggle',()=>{background().forEach(el=>el.inert=menu.open);summary.setAttribute('aria-expanded',String(menu.open));});
  menu.addEventListener('keydown',e=>{if(!menu.open)return;if(e.key==='Escape'){e.preventDefault();menu.open=false;summary.focus();}if(e.key==='Tab'){const items=[summary,...menu.querySelectorAll('nav a[href],nav button:not(:disabled)')];const first=items[0],last=items[items.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}});
 });
+
+/* v1.3 · Keep the current sidebar item in view. Scrolls only the sidebar's own
+   scroll container (never the window), instantly, roughly centred. The position
+   is remembered per tab and per sidebar (portal) in sessionStorage so the rail does not jump between pages. */
+(function(){
+ const KEY=n=>'triox-rail-scroll:'+(n.getAttribute('aria-label')||'rail');
+ const visibleNav=()=>[...document.querySelectorAll('.rail nav')].filter(n=>n.offsetParent!==null&&n.clientHeight>0);
+ const activeIn=n=>n.querySelector('.navitem[aria-current="page"]')||n.querySelector('.navitem.active');
+ function set(n,top){const b=n.style.scrollBehavior;n.style.scrollBehavior='auto';n.scrollTop=Math.max(0,Math.min(top,n.scrollHeight-n.clientHeight));n.style.scrollBehavior=b;}
+ function fits(n,a){const nr=n.getBoundingClientRect(),ar=a.getBoundingClientRect();return ar.top>=nr.top+8&&ar.bottom<=nr.bottom-8;}
+ function centre(n){const a=activeIn(n);if(!a||!n.clientHeight)return;const nr=n.getBoundingClientRect(),ar=a.getBoundingClientRect();set(n,n.scrollTop+(ar.top-nr.top)-(n.clientHeight-ar.height)/2);}
+ function keep(n,useSaved){const a=activeIn(n);if(!a||!n.clientHeight)return;if(useSaved){let s=null;try{s=sessionStorage.getItem(KEY(n));}catch(e){}if(s!==null){set(n,+s);if(fits(n,a))return;}}if(!fits(n,a))centre(n);}
+ function save(n){try{sessionStorage.setItem(KEY(n),String(Math.round(n.scrollTop)));}catch(e){}}
+ function run(useSaved){const x=window.scrollX,y=window.scrollY;visibleNav().forEach(n=>keep(n,useSaved));if(window.scrollX!==x||window.scrollY!==y)window.scrollTo(x,y);}
+ window.trioxKeepActiveNav=run;
+ document.querySelectorAll('.rail nav').forEach(n=>{n.addEventListener('click',e=>{if(e.target.closest('a'))save(n);});});
+ window.addEventListener('pagehide',()=>visibleNav().forEach(save));
+ /* mobile / tablet drawer: centre the current item each time it opens */
+ document.querySelectorAll('.mobile-menu').forEach(m=>m.addEventListener('toggle',()=>{if(!m.open)return;const n=m.querySelector('nav');if(!n)return;requestAnimationFrame(()=>{const a=activeIn(n);if(a&&!fits(n,a))centre(n);});}));
+ run(true);
+ if(document.readyState!=='complete')window.addEventListener('load',()=>run(false),{once:true});
+})();
