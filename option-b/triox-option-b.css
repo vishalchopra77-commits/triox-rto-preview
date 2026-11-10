@@ -365,3 +365,24 @@ html body .layout .mobile-menu .collapse{color:#BFE8E5!important;border-top-colo
 .integ-search{width:100%;min-width:0}
 .card-header.section-title{flex-direction:column;align-items:stretch}
 }
+
+/* === v1.5 integrations === */
+.filter-label{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin:4px 0 8px}
+.integ-tags{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.badge.only,.badge.only{background:#F3E8FF!important;color:#6B21A8!important;border:1px solid #D8B4FE}
+.chip.chip-only{border-color:#C084FC;color:#6B21A8}
+.integ-card[data-only="1"]{border-left-color:#7C3AED}
+.integ-card .badge.only{margin-left:0}
+
+.integ-card-top{flex-wrap:wrap}
+.integ-card-top .badge{margin-left:auto}
+@media(max-width:767px){
+.integ-card-top{display:grid;grid-template-columns:40px minmax(0,1fr);column-gap:12px;row-gap:8px;align-items:start}
+.integ-card-top .integ-glyph{grid-column:1;grid-row:1}
+.integ-card-top > div:not(.integ-glyph){grid-column:2;grid-row:1;min-width:0}
+.integ-card-top .badge{grid-column:1/-1;grid-row:2;margin-left:0;justify-self:start;max-width:100%}
+.integ-tags{gap:6px}
+.chiprow{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px}
+.chip{flex:none}
+}
+
