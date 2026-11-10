@@ -1,9 +1,11 @@
-# TRIOX design options v1.5
+# TRIOX design options v1.6
 Open `index.html`. It compares Option A (v3.0, blue) and Option B (Flip7-derived teal/gold) side by side, with links into each clickable prototype.
 
-- **Structure:** `option-a/` and `option-b/` each hold the 72 pages (71 screens + index) and a single-file standalone. `shots/` holds the comparison screenshots.
+- **Structure:** `option-a/` and `option-b/` each hold the pages (Option B: 79 screens + index + 3 redirect stubs; Option A: unchanged) and a single-file standalone. `shots/` holds the comparison screenshots.
 - **Paths:** all relative, with no network calls. It works from `file://` or from any GitHub Pages root or subpath (`.nojekyll` included).
 - Static concepts with fictional data only.
 
 - **v1.5 (10 Nov 2026):** dark left sidebar on every page kind in both options (CSS only: appended blocks in `option-a/triox-v3.css` and `option-b/triox-option-b.css`, mirrored in both standalone files).
 - **v1.5 (10 Nov 2026):** (1) the left sidebar keeps the current page's item in view: on load it scrolls only the sidebar's own scroll area (never the page), instantly, roughly centred, remembers the position per tab, and does the same in the mobile drawer and on standalone route changes (`triox-v3.js` in both options, mirrored inline in both standalones). (2) Option A's selected item is now a white row with navy text, its icon tile and a blue (violet on Platform admin) left bar (`option-a/triox-v3.css` and its standalone). (3) The old wording is gone from every file name, link, route and label: `platform-rtos.html`, `platform-rto-detail.html` and `rto-picker.html` replace the old pages; the old page addresses remain only as small "Redirecting…" pages so links that were already shared still work.
+
+- **v1.6 (10 Nov 2026), Option B only:** (1) Integrations marketplace matches the API plan rev5: 81 cards + 2 not-planned rows = 83 (32 v1, 28 v2, 21 Later, 2 not planned); Moodle, Canvas and LTI 1.3 in v1; USI is a v1 automatic check on TRIOX’s platform credential; PRISMS is “Planned: manual”. (2) New AI sidebar group on every RTO page: `ai-settings.html`, `ai-assistant.html`, `ai-marking.html`, `student-helper.html` (also in the learner portal sidebar as “Ask the helper”). (3) `usi.html` shows “Verified automatically via USI service”. Small pointers in `assessment-marking.html`, `enrolment-wizard.html`, `cricos.html`, `settings.html`. Standalone rebuilt. Archive: `review/archive/design-options-before-v1.6-20261110`.
